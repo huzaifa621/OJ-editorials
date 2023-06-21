@@ -12,10 +12,6 @@ Given a string of size N, the task is to print all the non-empty substrings of t
 
 **NOTE: You also need to take care of the test cases.**
 
-## Hint:
-
-Think about how you can use nested loops to generate substrings.
-
 ## Short Explanation:
 
 For this problem, we can use nested loops to generate all non-empty substrings of the given string. The outer loop iterates through each character and determines the starting position of the substring. The inner loop iterates from the starting position to the end of the string and determines the ending position of the substring. By using the starting and ending positions, we can extract the substring and print it.
