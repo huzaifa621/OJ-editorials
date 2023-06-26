@@ -48,6 +48,7 @@ The custom sorting algorithm can be implemented as follows:
 ## Pseudo Code:
 
 ```
+
 def compare_students(student1, student2):
     if student1[3] > student2[3]:  # Compare IQs
         return -1  # student1 is considered greater
@@ -71,22 +72,12 @@ def compare_students(student1, student2):
                 else:
                     return 0  # Names are the same
 
-# Read the number of students, N
-N = int(input())
 
-# Create an empty list to store student information
-students = []
+for i in range(N - 1):
+    for j in range(N - i - 1):
+        if compare_students(students[j], students[j + 1]) < 0:
+            students[j], students[j + 1] = students[j + 1], students[j]
 
-# Iterate over the input N times and populate the list with student details
-for _ in range(N):
-    name, height, weight, iq = input().split()
-    height = int(height)
-    weight = int(weight)
-    iq = int(iq)
-    students.append([name, height, weight, iq])
-
-# Sort the list of students based on the custom sorting algorithm
-students.sort(key=functools.cmp_to_key(compare_students))
 
 ```
 
