@@ -24,7 +24,9 @@ After processing the entire string, the stack will contain the surviving Minions
 
 ## Pseudo Code:
 
-```function findSurvivingMinions(N, S):
+```
+
+function findSurvivingMinions(N, S):
     Initialize an empty stack
     Iterate through each character in S:
         If the stack is not empty and the top character is the same as the current character:
@@ -39,7 +41,11 @@ After processing the entire string, the stack will contain the surviving Minions
 N = Read input for N
 S = Read input for S
 result = findSurvivingMinions(N, S)
-Print result```
+Print result
+
+
+```
+
 
 
 
