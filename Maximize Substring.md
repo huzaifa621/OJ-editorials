@@ -8,50 +8,54 @@ Manu is given a string S consisting of lowercase English alphabets of size N. Hi
 
 ## Hint:
 
-To solve this problem, think about iterating through the string and keeping track of the lexicographically maximum substring encountered so far.
+To solve this problem efficiently, you can iterate through the string while keeping track of the lexicographically maximum character and its instances.
 
 ## Short Explanation:
 
-In this problem, we are given a string S, and we need to find the lexicographically maximum substring of this string. To do this, we can iterate through the string from left to right while keeping track of the lexicographically maximum substring encountered so far. We start with an empty string as the initial maximum substring and update it whenever we find a character that is greater than or equal to the first character of the current maximum substring. This ensures that we build a lexicographically maximum substring as we move through the string.
+In this problem, you can find the lexicographically maximum substring by iterating through the string while keeping track of the maximum character and its instances. The provided code snippet demonstrates this approach.
 
 ## Detailed Explanation:
 
-To solve this problem, we can use the following approach:
-
-1. Read the input value N, which represents the size of the string.
-2. Read the input string S.
-3. Initialize a variable `max_substring` to an empty string (to store the lexicographically maximum substring).
-4. Initialize a variable `current_substring` to the first character of the input string (to start the current substring).
-5. Iterate through the characters of the input string from left to right, starting from the second character (index 1).
-6. For each character at index i:
-   - If the character at index i is greater than or equal to the first character of `current_substring`, append it to `current_substring`.
-   - Otherwise, compare `current_substring` with `max_substring`. If `current_substring` is lexicographically greater, update `max_substring` with its value.
-   - Reset `current_substring` to the current character.
-7. After the loop, compare `current_substring` with `max_substring` one more time to ensure that the last substring is considered.
-8. Print the value of `max_substring` as the lexicographically maximum substring.
+1. Initialize an empty list `instances` to store the indices where the maximum character occurs in the string.
+2. Initialize `maxi` to the first character of the input string `s` (s[0]) as the initial maximum character.
+3. Iterate through each character `char` in the string `s`.
+4. In each iteration, update `maxi` to be the maximum of `char` and the current `maxi`. This ensures that `maxi` always contains the lexicographically maximum character encountered so far.
+5. After completing the loop, you have the lexicographically maximum character stored in `maxi`.
+6. Iterate through the indices of the string `s` from 0 to N-1.
+7. For each index `i`, check if `s[i]` is equal to `maxi`. If it is, append `i` to the `instances` list. This identifies all instances where the maximum character occurs in the string.
+8. Now, you have a list of indices `instances` where the maximum character occurs.
+9. Iterate through each index `idx` in the `instances` list.
+10. For each `idx`, update `maxi` by finding the maximum lexicographically substring starting from `s[idx]` onwards. You can do this by taking the maximum of the current `maxi` and the substring `s[idx:]`.
+11. After completing the loop, `maxi` contains the lexicographically maximum substring.
+12. Print `maxi` as the answer.
 
 ## Pseudo Code:
+
 ```plaintext
-- int N // size of the string
-- string S // input string
-- string max_substring = "" // lexicographically maximum substring
-- string current_substring = S[0] // current substring starting from the first character
-- for i = 1 to N-1
-    - if S[i] >= current_substring[0]
-        - append S[i] to current_substring
-    - else
-        - if current_substring is lexicographically greater than max_substring
-            - set max_substring to current_substring
-        - set current_substring to S[i]
-- if current_substring is lexicographically greater than max_substring
-    - set max_substring to current_substring
-- print max_substring
+- string s // input string
+- list instances = [] // to store indices where maximum character occurs
+- char maxi = s[0] // initial maximum character
+
+- // Find the maximum character
+- for char in s:
+    - set maxi to maximum of char and maxi
+
+- // Find indices where maximum character occurs
+- for i in range(N):
+    - if s[i] is equal to maxi:
+        - append i to instances
+
+- // Find the lexicographically maximum substring
+- for idx in instances:
+    - set maxi to maximum of s[idx:] and maxi
+
+- print maxi
 ```
 
 ## Time Complexity:
 
-The time complexity of this approach is O(N), where N is the size of the input string. We iterate through the string once, and the comparisons and concatenations are done in constant time for each character.
+The time complexity of this approach is O(N), where N is the size of the input string. We iterate through the string once to find the maximum character, and then we iterate through the instances to find the lexicographically maximum substring.
 
 ## Space Complexity:
 
-The space complexity is O(N) because we store the input string S, `max_substring`, and `current_substring`, each of which can have a maximum length of N.
+The space complexity is O(1) because we only use a constant amount of extra space to store variables, regardless of the input size.
