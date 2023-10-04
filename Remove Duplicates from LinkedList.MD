@@ -6,7 +6,7 @@ Approach:
 
 Since the linked list is sorted, duplicate nodes will always be adjacent to each other. We can iterate through the list, comparing each node with its next node. If the current node's value is equal to the next node's value, it means there is a duplicate. In this case, we skip the next node by changing the next pointer of the current node to point to the node after the next node.
 
-''''
+```
 Input: ListNode head // head of the linked list
 
 current = head // start from the head of the linked list
@@ -20,7 +20,7 @@ current = head // start from the head of the linked list
             current = current.next
 
 
-''''
+```
 
 Time Complexity:
 

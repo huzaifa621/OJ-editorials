@@ -14,7 +14,7 @@ If there is a cycle, the fast pointer will eventually meet the slow pointer. If 
 
 Pseudocode:
 
-''''
+```
 slow = head // initialize slow pointer
 fast = head // initialize fast pointer
 
@@ -29,7 +29,7 @@ Inside the while loop:
 // no cycle found
 return false
 
-''''
+```
 
 Time Complexity:
 
