@@ -22,28 +22,41 @@ Update the maximum beauty when needed by comparing the current window's length w
 Finally, output the maximum beauty.
 
 ## Pseudo Code:
-
+```
 int N // length of the string
+
 int K // maximum allowed changes
+
 string s // input binary string
+
 int maxBeauty = 0 // maximum beauty
+
 int left = 0 // left end of the window
-int zeroCount = 0 // count of 0s within the window
+
+int zeroCount = 0 // count of 0s 
+within the window
+
 int oneCount = 0 // count of 1s within the window
+
 for (int right = 0; right < N; right++)
 if (s[right] == '0')
 increment zeroCount by 1
+
 else
 increment oneCount by 1
+
 while (minimum(zeroCount, oneCount) > K)
 if (s[left] == '0')
 decrement zeroCount by 1
+
 else
 decrement oneCount by 1
+
 increment left by 1
+
 maxBeauty = maximum(maxBeauty, zeroCount + oneCount)
 print maxBeauty
-
+```
 
 ## Time Complexity:
 

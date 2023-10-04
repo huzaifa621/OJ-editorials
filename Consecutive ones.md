@@ -26,22 +26,34 @@ Output the max_length as the answer.
 
 ## Pseudo Code:
 
-int t // number of test cases
+```int t // number of test cases
+
 for each test case:
+
 int n, k // length of the string and the maximum allowed changes
+
 string s // binary string
+
 int max_length = 0 // maximum length of contiguous '1's
+
 int left = 0 // left end of the window
+
 int zero_count = 0 // count of '0's within the window
+
 for right in range(n):
 if s[right] == '0':
+
 increment zero_count by 1
+
 while zero_count > k:
 if s[left] == '0':
+
 decrement zero_count by 1
 increment left by 1
+
 max_length = maximum(max_length, right - left + 1)
 print max_length
+```
 
 ## Time Complexity:
 
